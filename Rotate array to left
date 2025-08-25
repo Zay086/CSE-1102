@@ -1,0 +1,42 @@
+
+/*Sample Input
+5
+10 20 30 40 50
+2
+Your Output
+30 40 50 10 20 */
+
+#include <stdio.h>
+
+int main() {
+    
+    int n;
+    scanf("%d",&n);
+	int arr[100];
+	for(int i=0;i<n;i++)
+	{
+	    scanf("%d",&arr[i]);
+	}
+	
+	int rotate,temp;
+	scanf("%d",&rotate);
+	for(int i=0;i<rotate;i++)
+	{
+	    int temp=arr[0];
+	    for(int j=0;j<n;j++)
+	    {
+	        if(j==(n-1))
+	        {
+	            arr[n-1]=temp;
+	            break;
+	        }
+	        arr[j]=arr[j+1];
+	    }
+	}
+	
+	for(int i=0;i<n;i++)
+	{
+	    printf("%d ",arr[i]);
+	}
+
+}
