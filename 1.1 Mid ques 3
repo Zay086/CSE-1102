@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+int main() {
+    float type, quantity, distance, sum, sum_discount, delivery_charge;
+    //Input
+    printf("Enter food type(Burger: 1, Pizza: 2, Pasta: 3):"); //Input the integer corrosponding your choice
+    scanf("%f", & type);
+    printf("Enter quantity:");
+    scanf("%f", & quantity);
+    printf("Enter delivery distance(in km):");
+    scanf("%f", & distance);
+
+    //Calculations
+
+    if (type == 1) // 1 means burger
+    {
+        sum = 120 * quantity; //price of the burger is 120
+    }
+    else if (type == 2) // 2 means pizza
+    {
+        sum = 250 * quantity; //price of the pizza is 120
+    }
+    else if (type == 3) // 3 -->pasta
+    {
+        sum = 180 * quantity; //price of the pasta is 180
+    }
+
+    sum_discount = 0;
+    if (sum >= 1000) //if total excedes 1k
+    {
+        sum_discount = (sum * 5) / 100;
+    }
+
+    delivery_charge = distance * 10; //per km charge is 10 tk ;
+
+
+
+
+    // Output
+    if (sum + delivery_charge < 300) //Didn't add the dicount because we wil consider discount if the total sum without delivery charge exceeds 1k;
+    {
+        printf("Minimum order ammount (including delivery) must be at least 300 BDT");
+        return 0;
+    }
+
+    if (type == 1) // 1 means burger
+    {
+        printf("Food Type: Burger\n");
+    }
+    else if (type == 2) // 2 means pizza
+    {
+        printf("Food Type: Pizza\n");
+    }
+    else if (type == 3) // 3 -->pasta
+    {
+        printf("Food Type: Pasta\n");
+    }
+
+    printf("Quantity: %f\n", quantity);
+    
+    printf("Delivery Distance:%f km\n", distance);
+    
+    printf("Discount Applied:%f BDT\n", sum_discount);
+    
+    printf("Food Cost after Discount:%f BDT\n", sum - sum_discount);
+    
+    printf("Delivery Charge:%f BDT\n", delivery_charge);
+    
+    printf("Total Amount to Pay:%f BDT", sum - sum_discount + delivery_charge);
+
+
+
+
+}
